@@ -3,4 +3,4 @@ This repository has a a colloction of very useful powershell tools and scripts p
 
 Each branch is a diferent project.
 
-*winscp-download: This script can be used to download files via SFTP using WinSCP.
+- [winscp-download] (https://github.com/ndeepakrao/powershell/tree/winscp-download): This script can be used to download files via SFTP using WinSCP.
