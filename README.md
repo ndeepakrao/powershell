@@ -1,6 +1,5 @@
-# powershell
-This repository has a a colloction of very useful powershell tools and scripts put together by me.
+# s3_file_archive
 
-Each branch is a diferent project.
+go back to [home](https://github.com/ndeepakrao/powershell)
 
-*winscp-download: This script can be used to download files via SFTP using WinSCP.
+This script lest you move your daily archive files on to an s3 bucket. IT ONLY WORKS IF RUN FROM AN EC2 INSTANCE THAT HASS ALL THE POLICIES IN PLACE TO PERFORM ACTIONS ON AN S3 BUCKET.
