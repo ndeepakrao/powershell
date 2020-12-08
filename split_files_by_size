@@ -1,0 +1,40 @@
+# Replace with your base folder's path
+$baseFolder = "C:\Users\"
+
+# Replace with the desired value for the subfolders to create
+$maxSubFolderSize = 29MB
+
+# Get all files contained in your base folder (could use the -recurse switch if needed)
+$allFiles = Get-ChildItem $baseFolder
+
+# Setting the subfolders naming convention : a name and a suffix
+$baseSubFolder = "QGS-"
+[int]$index = 0
+
+# Creating the first subfolder
+write-host "create firs folder"
+$subFolder = "QGS-" + "$index"
+New-Item -Path $subFolder -Type Directory -Force
+
+# Now processing the files
+foreach ($file in $allFiles)
+{
+    # Evaluating the size of the current subfolder
+    write-host "Eval folder size"
+    $subFolderSize = ((Get-ChildItem $subFolder -Recurse | Measure-Object -Property Length -Sum -ErrorAction Stop).Sum / 1MB)
+
+    # If the current subfolder size is greater than the limit, create a new subfolder and begin to copy files in it
+    write-host "If file size exceeds ,create new folder"
+    if([int]$subFolderSize -gt [int]$maxSubFolderSize/1MB)
+    {
+        $index++
+        $subFolder = $baseSubFolder + $index
+        New-Item -Path $subFolder -Type Directory -Force
+        Write-Verbose -Message "Created folder $subFolder"
+        Move-Item $file.FullName -Destination $subFolder
+    }
+    # If the current subfolder is not yet greater that the limit, continue copying files in it
+    else {
+        Move-Item $file.FullName -Destination $subFolder
+    }
+}
