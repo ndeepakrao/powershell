@@ -7,4 +7,4 @@ Each branch is a diferent project.
 
 - [s3_file_archive](https://github.com/ndeepakrao/powershell/tree/s3_file_archive):This script lest you move your daily archive files on to an s3 bucket.
 
-- [splir_files_by_Size](https://github.com/ndeepakrao/powershell/blob/split_files_by_size/split_files_by_size)
+- [splir_files_by_Size](https://github.com/ndeepakrao/powershell/blob/split_files_by_size/split_files_by_size): group files into folders of a specific size.
